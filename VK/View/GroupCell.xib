@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="47" id="TaK-SJ-TeD" customClass="GroupCell" customModule="VK">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TaK-SJ-TeD" id="ifp-PY-qsc">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="47"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uzT-Hr-CKn">
+                        <rect key="frame" x="4" y="4" width="39" height="39"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="uzT-Hr-CKn" secondAttribute="height" id="IM5-PC-KWj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDu-MP-ukJ">
+                        <rect key="frame" x="55" y="9" width="327" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="uzT-Hr-CKn" firstAttribute="top" secondItem="ifp-PY-qsc" secondAttribute="top" constant="4" id="IRJ-Ur-9gu"/>
+                    <constraint firstItem="VDu-MP-ukJ" firstAttribute="leading" secondItem="uzT-Hr-CKn" secondAttribute="trailing" constant="12" id="IXf-oo-6vW"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VDu-MP-ukJ" secondAttribute="trailing" constant="12" id="Jbc-WV-HLJ"/>
+                    <constraint firstItem="uzT-Hr-CKn" firstAttribute="leading" secondItem="ifp-PY-qsc" secondAttribute="leading" constant="4" id="geH-hx-vIc"/>
+                    <constraint firstItem="VDu-MP-ukJ" firstAttribute="centerY" secondItem="ifp-PY-qsc" secondAttribute="centerY" id="lZn-vo-R0a"/>
+                    <constraint firstAttribute="bottom" secondItem="uzT-Hr-CKn" secondAttribute="bottom" constant="4" id="qAj-Mp-yv6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="groupName" destination="VDu-MP-ukJ" id="pSo-7Q-td6"/>
+                <outlet property="groupPhoto" destination="uzT-Hr-CKn" id="Dpf-S3-igL"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="10"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
