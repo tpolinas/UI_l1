@@ -49,6 +49,8 @@ class ProfileCollectionViewController: UICollectionViewController {
     
         return cell
     }
+    
+    
 
     // MARK: UICollectionViewDelegate
 

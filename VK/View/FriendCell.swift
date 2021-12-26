@@ -8,7 +8,7 @@
 import UIKit
 
 class FriendCell: UITableViewCell {
-    @IBOutlet var friendPhoto: UIImageView!
+    @IBOutlet var friendPhoto: AvatarImage!
     @IBOutlet var friendName: UILabel!
     
     func configure(

@@ -13,7 +13,7 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="GradientView" customModule="VK" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -40,8 +40,17 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HGI-Bk-FE2">
                                                         <rect key="frame" x="101" y="0.0" width="273" height="34"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.Color">
+                                                                <color key="value" red="0.53737688915373671" green="0.33156298780684718" blue="0.92822124048606636" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -56,8 +65,17 @@
                                                     </label>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5PI-KY-8pg">
                                                         <rect key="frame" x="101" y="0.0" width="273" height="34"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.Color">
+                                                                <color key="value" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -68,7 +86,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jev-1X-ZFv">
                                         <rect key="frame" x="114" y="544" width="186" height="31"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Enter">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,14 +114,35 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="WaF-X3-38p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9k7-r7-CmN"/>
                             <constraint firstAttribute="bottom" secondItem="WaF-X3-38p" secondAttribute="bottom" id="BmZ-xy-oXV"/>
+                            <constraint firstItem="WaF-X3-38p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MKP-Lv-EoI"/>
+                            <constraint firstItem="WaF-X3-38p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UzS-KL-eeK"/>
                             <constraint firstItem="jev-1X-ZFv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="jfH-2y-kfD"/>
                             <constraint firstItem="WaF-X3-38p" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oNJ-7M-val"/>
                             <constraint firstAttribute="trailing" secondItem="WaF-X3-38p" secondAttribute="trailing" id="wHh-8v-fUY"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                <color key="value" systemColor="systemIndigoColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                <color key="value" systemColor="systemGreenColor"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="startLocation">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="endLocation">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                <point key="value" x="0.0" y="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                <point key="value" x="1" y="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="passwordTextField" destination="5PI-KY-8pg" id="KBj-Gt-dS5"/>
@@ -113,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="375" y="36"/>
+            <point key="canvasLocation" x="373.91304347826087" y="35.491071428571423"/>
         </scene>
         <!--My Groups-->
         <scene sceneID="oQP-DI-Rrh">
@@ -301,7 +340,9 @@
         <scene sceneID="Ze2-PB-tq2">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sel-QJ-JDV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="person.2.fill" catalog="system" id="inv-CN-KgA"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.2.fill" catalog="system" id="inv-CN-KgA">
+                        <color key="badgeColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eY9-H6-ugZ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -320,7 +361,9 @@
         <scene sceneID="gtv-Iw-17k">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CjD-ie-qa5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" id="8lv-zQ-JYb"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="person.3.fill" catalog="system" id="8lv-zQ-JYb">
+                        <color key="badgeColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eej-hU-l2h">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -356,11 +399,18 @@
             <point key="canvasLocation" x="1265.217391304348" y="36.160714285714285"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
