@@ -45,7 +45,7 @@ class ProfileCollectionViewController: UICollectionViewController {
         cell.configure(
             name: "Some Octocat",
             photo: UIImage(named: "\(indexPath.row)"),
-            age: "24")
+            age: "Age: 24")
     
         return cell
     }

@@ -48,7 +48,7 @@ final class MyGroupsViewController: UITableViewController {
         let currentCity = groups[indexPath.row]
 
         cell.configure(
-            photo: UIImage(systemName: "\(indexPath.row).circle") ?? UIImage(),
+            photo: UIImage(systemName: "person.3.fill") ?? UIImage(),
             name: currentCity)
 
         return cell

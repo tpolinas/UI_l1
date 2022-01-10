@@ -9,12 +9,19 @@ import UIKit
 final class AllGroupsViewController: UITableViewController {
 
     var groups = [
-        "First Group",
-        "Second Group",
-        "Third Group",
-        "Forth Group",
-        "Fifth Group"
+        "/testpool",
+        "киберпанк, который мы заслужили",
+        "Десигн",
+        "Однажды в Википедии",
+        "Вся история рока",
+        "Цитаты Курта Кобейна",
+        "RUSH band",
+        "Квантовые вычисления",
+        "Типичный Сисадмин",
+        "Физика для еб@нов",
     ]
+    var groupSectionTitles = [String]()
+    var groupsDictionary = [String: [String]]()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -23,11 +30,42 @@ final class AllGroupsViewController: UITableViewController {
             nibName: "GroupCell",
             bundle: nil),
                            forCellReuseIdentifier: "groupCell")
+        
+        for group in groups {
+            let groupKey = String(group.prefix(1))
+            if var groupValues = groupsDictionary[groupKey] {
+                groupValues.append(group)
+                groupsDictionary[groupKey] = groupValues
+            } else {
+                groupsDictionary[groupKey] = [group]
+            }
+        }
+        
+        groupSectionTitles = [String](groupsDictionary.keys)
+        groupSectionTitles = groupSectionTitles.sorted(by: { $0 < $1 })
     }
     
     // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return groupSectionTitles.count
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        groups.count
+        
+        let groupKey = groupSectionTitles[section]
+        if let groupValues = groupsDictionary[groupKey] {
+            return groupValues.count
+        }
+        
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return groupSectionTitles[section]
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return groupSectionTitles
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,10 +73,15 @@ final class AllGroupsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as? GroupCell
         else { return UITableViewCell() }
         
-        let currentGroup = groups[indexPath.row]
-
+        var currentGroup = groups[indexPath.row]
+        
+        let groupKey = groupSectionTitles[indexPath.section]
+        if let groupValues = groupsDictionary[groupKey] {
+            currentGroup = groupValues[indexPath.row]
+        }
+        
         cell.configure(
-            photo: UIImage(systemName: "\(indexPath.row).circle") ?? UIImage(),
+            photo: UIImage(systemName: "person.3.fill") ?? UIImage(),
             name: currentGroup)
 
         return cell
