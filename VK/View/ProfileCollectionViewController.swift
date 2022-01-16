@@ -11,7 +11,6 @@ class ProfileCollectionViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        UIScreen.main.bounds
         self.collectionView.register(
             UINib(
                 nibName: "ProfileCollectionCell",

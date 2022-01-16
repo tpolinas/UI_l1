@@ -20,9 +20,9 @@ final class MyGroupsViewController: UITableViewController {
         segue.identifier == "addGroup",
         let allGroupsController = segue.source as? AllGroupsViewController,
         let groupIndexPath = allGroupsController.tableView.indexPathForSelectedRow,
-        !self.groups.contains(allGroupsController.groups[groupIndexPath.row])
+        !self.groups.contains(allGroupsController.groups[groupIndexPath.section])
     else { return }
-    self.groups.append(allGroupsController.groups[groupIndexPath.row])
+    self.groups.append(allGroupsController.groups[groupIndexPath.section])
     tableView.reloadData()
 }
     
@@ -45,11 +45,11 @@ final class MyGroupsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as? GroupCell
         else { return UITableViewCell() }
         
-        let currentCity = groups[indexPath.row]
+        let currentGroup = groups[indexPath.row]
 
         cell.configure(
             photo: UIImage(systemName: "person.3.fill") ?? UIImage(),
-            name: currentCity)
+            name: currentGroup)
 
         return cell
     }
@@ -65,30 +65,5 @@ final class MyGroupsViewController: UITableViewController {
                 with: .fade)
         }
     }
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
