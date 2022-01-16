@@ -16,13 +16,10 @@ final class MyGroupsViewController: UITableViewController {
     
     
 @IBAction func addGroup(segue: UIStoryboardSegue) {
-    guard
-        segue.identifier == "addGroup",
-        let allGroupsController = segue.source as? AllGroupsViewController,
-        let groupIndexPath = allGroupsController.tableView.indexPathForSelectedRow,
-        !self.groups.contains(allGroupsController.groups[groupIndexPath.section])
+    guard segue.identifier == "addGroup",
+        let allGroupsViewController = segue.source as? AllGroupsViewController
     else { return }
-    self.groups.append(allGroupsController.groups[groupIndexPath.section])
+    groups = allGroupsViewController.userGroups
     tableView.reloadData()
 }
     
@@ -65,5 +62,11 @@ final class MyGroupsViewController: UITableViewController {
                 with: .fade)
         }
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addGroup",
+           let allGroupsViewController = segue.destination as? AllGroupsViewController {
+            allGroupsViewController.userGroups = groups
+        }
+    }
 }

@@ -93,30 +93,27 @@ final class AllGroupsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView,
                             didSelectRowAt indexPath: IndexPath) {
-            defer {
-                tableView.deselectRow(at: indexPath, animated: true)
-            }
-            
-            let groupKey = groupSectionTitles[indexPath.section]
-            var currentGroup = ""
-            if let groupValues = groupsDictionary[groupKey] {
-                currentGroup = groupValues[indexPath.row]
-            }
-            
-            if userGroups.firstIndex(of: currentGroup) == nil {
-                userGroups.append(currentGroup)
-            }
-            
-            performSegue(withIdentifier: "addGroup", sender: nil)
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        let groupKey = groupSectionTitles[indexPath.section]
+        var currentGroup = ""
+        if let groupValues = groupsDictionary[groupKey] {
+            currentGroup = groupValues[indexPath.row]
+        }
+        
+        if userGroups.firstIndex(of: currentGroup) == nil {
+            userGroups.append(currentGroup)
+        }
+        
+        self.performSegue(withIdentifier: "addGroup", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
             if segue.identifier == "addGroup",
-               let myGroupsViewController = segue.destination as? MyGroupsViewController
-            {
+               let myGroupsViewController = segue.destination as? MyGroupsViewController {
                 myGroupsViewController.groups = userGroups
-            }
+        }
     }
-
 }
