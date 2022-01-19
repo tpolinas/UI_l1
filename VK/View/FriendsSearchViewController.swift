@@ -16,17 +16,11 @@ final class FriendsSearchViewController: UITableViewController {
         "Forth Octocat",
         "Fifth Octocat"
     ]
+    
+    var userFriends: [String] = []
+    var friendSectionTitles = [String]()
+    var friendsDictionary = [String: [String]]()
 
-    @IBAction func addFriend(segue: UIStoryboardSegue) {
-        guard
-            segue.identifier == "addFriend",
-            let allFriendsController = segue.source as? FriendsSearchViewController,
-            let friendIndexPath = allFriendsController.tableView.indexPathForSelectedRow,
-            !self.friends.contains(allFriendsController.friends[friendIndexPath.row])
-        else { return }
-        self.friends.append(allFriendsController.friends[friendIndexPath.row])
-        tableView.reloadData()
-    }
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,11 +28,42 @@ final class FriendsSearchViewController: UITableViewController {
             nibName: "FriendCell",
             bundle: nil),
                            forCellReuseIdentifier: "friendCell")
+        
+        for friend in friends {
+            let friendKey = String(friend.prefix(1))
+            if var friendValues = friendsDictionary[friendKey] {
+                friendValues.append(friend)
+                friendsDictionary[friendKey] = friendValues
+            } else {
+                friendsDictionary[friendKey] = [friend]
+            }
+        }
+        
+        friendSectionTitles = [String](friendsDictionary.keys)
+        friendSectionTitles = friendSectionTitles.sorted(by: { $0 < $1 })
     }
     
     // MARK: - Table view data source
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        friendSectionTitles.count
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        friends.count
+        let friendKey = friendSectionTitles[section]
+        if let friendValues = friendsDictionary[friendKey] {
+            return friendValues.count
+        }
+        
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        friendSectionTitles[section]
+    }
+    
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        friendSectionTitles
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -46,22 +71,45 @@ final class FriendsSearchViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? FriendCell
         else { return UITableViewCell() }
         
-        let currentFriend = friends[indexPath.row]
+        var currentFriend = friends[indexPath.row]
+        
+        let friendKey = friendSectionTitles[indexPath.section]
+        if let friendValues = friendsDictionary[friendKey] {
+            currentFriend = friendValues[indexPath.row]
+        }
 
         cell.configure(
             photo: UIImage(named: "\(indexPath.row)") ?? UIImage(),
-            name: currentFriend)
+            name: currentFriend,
+            surname: "")
 
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        defer { tableView.deselectRow(
-            at: indexPath,
-            animated: true) }
-        performSegue(
-            withIdentifier: "addFriend",
-            sender: nil)
+        
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        
+        let friendKey = friendSectionTitles[indexPath.section]
+        var currentFriend = ""
+        if let friendValues = friendsDictionary[friendKey] {
+            currentFriend = friendValues[indexPath.row]
+        }
+        
+        if userFriends.firstIndex(of: currentFriend) == nil {
+            userFriends.append(currentFriend)
+        }
+        
+        self.performSegue(withIdentifier: "addFriend", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "addFriend",
+               let myFriendsViewController = segue.destination as? MyFriendsViewController {
+                myFriendsViewController.friends = userFriends
+        }
     }
     /*
     // Override to support conditional editing of the table view.

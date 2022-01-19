@@ -10,11 +10,14 @@ import UIKit
 class FriendCell: UITableViewCell {
     @IBOutlet var friendPhoto: AvatarImage!
     @IBOutlet var friendName: UILabel!
+    @IBOutlet var friendSurname: UILabel!
     
     func configure(
         photo: UIImage,
-        name: String) {
+        name: String,
+        surname: String) {
             self.friendPhoto.image = photo
             self.friendName.text = name
+            self.friendSurname.text = surname
         }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 struct UserModel {
     let userName: String
+    let userSurname: String
     let userPhoto: UIImage
     let userAge: String
 }

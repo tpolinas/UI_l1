@@ -59,14 +59,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKH-cc-gq5">
+                        <rect key="frame" x="187" y="37" width="57" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="rzh-2h-hvI" firstAttribute="leading" secondItem="bE4-np-5Hp" secondAttribute="leading" constant="8" id="3OO-fS-dd5"/>
                     <constraint firstItem="YmA-gX-IKM" firstAttribute="centerY" secondItem="ss2-Kj-riU" secondAttribute="centerY" id="8vd-du-gJA"/>
+                    <constraint firstAttribute="trailing" secondItem="uKH-cc-gq5" secondAttribute="trailing" constant="246" id="Br4-HS-uIf"/>
                     <constraint firstItem="YmA-gX-IKM" firstAttribute="leading" secondItem="rzh-2h-hvI" secondAttribute="trailing" constant="12" id="Dta-zQ-ET5"/>
                     <constraint firstAttribute="trailing" secondItem="YmA-gX-IKM" secondAttribute="trailing" constant="12" id="OgX-3L-69e"/>
                     <constraint firstItem="rzh-2h-hvI" firstAttribute="top" secondItem="bE4-np-5Hp" secondAttribute="top" constant="8" id="S2D-vA-3SA"/>
+                    <constraint firstItem="uKH-cc-gq5" firstAttribute="leading" secondItem="rzh-2h-hvI" secondAttribute="trailing" constant="91" id="Xqa-QQ-YYz"/>
                     <constraint firstAttribute="bottom" secondItem="rzh-2h-hvI" secondAttribute="bottom" constant="8" id="ccZ-NG-nb8"/>
+                    <constraint firstItem="YmA-gX-IKM" firstAttribute="top" secondItem="uKH-cc-gq5" secondAttribute="bottom" constant="-28.5" id="vMk-ac-9Cl"/>
                 </constraints>
             </tableViewCellContentView>
             <userDefinedRuntimeAttributes>
@@ -77,6 +86,7 @@
             <connections>
                 <outlet property="friendName" destination="YmA-gX-IKM" id="KR2-b5-CO6"/>
                 <outlet property="friendPhoto" destination="ss2-Kj-riU" id="MOj-Vk-bVq"/>
+                <outlet property="friendSurname" destination="uKH-cc-gq5" id="PCr-k8-jWa"/>
             </connections>
             <point key="canvasLocation" x="102.89855072463769" y="31.473214285714285"/>
         </tableViewCell>

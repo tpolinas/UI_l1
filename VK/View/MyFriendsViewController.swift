@@ -16,13 +16,10 @@ final class MyFriendsViewController: UITableViewController {
     
     
     @IBAction func addFriend(segue: UIStoryboardSegue) {
-        guard
-            segue.identifier == "addFriend",
-            let allFriendsController = segue.source as? FriendsSearchViewController,
-            let friendIndexPath = allFriendsController.tableView.indexPathForSelectedRow,
-            !self.friends.contains(allFriendsController.friends[friendIndexPath.row])
+        guard segue.identifier == "addFriend",
+            let allFriendsViewController = segue.source as? FriendsSearchViewController
         else { return }
-        self.friends.append(allFriendsController.friends[friendIndexPath.row])
+        friends = allFriendsViewController.userFriends
         tableView.reloadData()
     }
     
@@ -49,10 +46,12 @@ final class MyFriendsViewController: UITableViewController {
 
         cell.configure(
             photo: UIImage(named: "\(indexPath.row)") ?? UIImage(),
-            name: currentFriend)
+            name: currentFriend,
+            surname: "")
 
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         defer { tableView.deselectRow(
             at: indexPath,
@@ -61,7 +60,16 @@ final class MyFriendsViewController: UITableViewController {
             withIdentifier: "showProfile",
             sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addFriend",
+           let allFriendsViewController = segue.destination as? FriendsSearchViewController {
+            allFriendsViewController.userFriends = friends
+        }
+    }
 }
+
+
 
 
     /*
