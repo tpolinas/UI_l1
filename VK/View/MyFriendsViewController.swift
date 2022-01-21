@@ -8,7 +8,7 @@
 import UIKit
 
 final class MyFriendsViewController: UITableViewController {
-    var friends = [String]() {
+    var friends = [UserModel]() {
         didSet {
             //
         }
@@ -19,7 +19,11 @@ final class MyFriendsViewController: UITableViewController {
         guard segue.identifier == "addFriend",
             let allFriendsViewController = segue.source as? FriendsSearchViewController
         else { return }
-        friends = allFriendsViewController.userFriends
+        
+        friends = allFriendsViewController.userFriends.sorted {
+            $0.userSurname < $1.userSurname
+        }
+        
         tableView.reloadData()
     }
     
@@ -43,11 +47,8 @@ final class MyFriendsViewController: UITableViewController {
         else { return UITableViewCell() }
         
         let currentFriend = friends[indexPath.row]
-
-        cell.configure(
-            photo: UIImage(named: "\(indexPath.row)") ?? UIImage(),
-            name: currentFriend,
-            surname: "")
+        
+        cell.configure(photo: currentFriend.userPhoto ?? UIImage(), name: currentFriend.userFirstName, surname: currentFriend.userSurname)
 
         return cell
     }

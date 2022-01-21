@@ -7,9 +7,13 @@
 
 import UIKit
 
-struct UserModel {
-    let userName: String
+struct UserModel: Equatable {
+    static func == (lhs: UserModel, rhs: UserModel) -> Bool {
+        lhs.userSurname == rhs.userSurname
+    }
+    
+    let userFirstName: String
     let userSurname: String
-    let userPhoto: UIImage
-    let userAge: String
+    let userPhoto: UIImage?
+    let userAge: Int
 }

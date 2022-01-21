@@ -16,6 +16,8 @@
 		3A3F1E9B276BDD9D0058FD50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F1E9A276BDD9D0058FD50 /* LoginViewController.swift */; };
 		3A3F1EA3276BDD9E0058FD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F1EA1276BDD9E0058FD50 /* LaunchScreen.storyboard */; };
 		3A3F1EAE276BDE640058FD50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F1EAD276BDE640058FD50 /* Main.storyboard */; };
+		3A407751279AC2A3006159CC /* GroupsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A407750279AC2A3006159CC /* GroupsSearchViewController.swift */; };
+		3A407753279AC2E9006159CC /* SearchFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A407752279AC2E9006159CC /* SearchFriendsViewController.swift */; };
 		3A41839A27762C6A004980D6 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41839927762C6A004980D6 /* LogoView.swift */; };
 		3A41839C2776321A004980D6 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41839B2776321A004980D6 /* AvatarView.swift */; };
 		3A5488E12777A39E004CFC1E /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5488E02777A39E004CFC1E /* FriendCell.xib */; };
@@ -44,6 +46,8 @@
 		3A3F1EA2276BDD9E0058FD50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A3F1EA4276BDD9E0058FD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3F1EAD276BDE640058FD50 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3A407750279AC2A3006159CC /* GroupsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsSearchViewController.swift; sourceTree = "<group>"; };
+		3A407752279AC2E9006159CC /* SearchFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendsViewController.swift; sourceTree = "<group>"; };
 		3A41839927762C6A004980D6 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		3A41839B2776321A004980D6 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		3A5488E02777A39E004CFC1E /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				3AEFA833276F44EA00DA7F3F /* MyFriendsViewController.swift */,
 				3AEFA831276F44A900DA7F3F /* NavigationViewController.swift */,
 				3A3F1E9A276BDD9D0058FD50 /* LoginViewController.swift */,
+				3A407752279AC2E9006159CC /* SearchFriendsViewController.swift */,
+				3A407750279AC2A3006159CC /* GroupsSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -256,12 +262,14 @@
 				3A41839A27762C6A004980D6 /* LogoView.swift in Sources */,
 				3A130D2827734C4000280256 /* ProfileCollectionViewController.swift in Sources */,
 				3AB2A8F027735AB3009F07F8 /* UserModel.swift in Sources */,
+				3A407751279AC2A3006159CC /* GroupsSearchViewController.swift in Sources */,
 				3A31742B27751C4900FA03CE /* GradientView.swift in Sources */,
 				3AC5EC3D27724E0D00644BF2 /* FriendCell.swift in Sources */,
 				3A3F1E97276BDD9D0058FD50 /* AppDelegate.swift in Sources */,
 				3A3F1E99276BDD9D0058FD50 /* SceneDelegate.swift in Sources */,
 				3AC5EC3427723C7200644BF2 /* AllGroupsViewController.swift in Sources */,
 				3AC5EC4027724F3100644BF2 /* FriendsSearchViewController.swift in Sources */,
+				3A407753279AC2E9006159CC /* SearchFriendsViewController.swift in Sources */,
 				3AC5EC392772403800644BF2 /* GroupCell.swift in Sources */,
 				3A41839C2776321A004980D6 /* AvatarView.swift in Sources */,
 				3A130D2527734A3500280256 /* ProfileCollectionCell.swift in Sources */,

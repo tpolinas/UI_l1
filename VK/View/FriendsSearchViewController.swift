@@ -10,16 +10,35 @@ import UIKit
 final class FriendsSearchViewController: UITableViewController {
 
     var friends = [
-        "First Octocat",
-        "Second Octocat",
-        "Third Octocat",
-        "Forth Octocat",
-        "Fifth Octocat"
+        UserModel(userFirstName: "Polina",
+                  userSurname: "James",
+                  userPhoto: UIImage(systemName: "star"),
+                  userAge: 20),
+        UserModel(userFirstName: "Ivan",
+                  userSurname: "Gomez",
+                  userPhoto: UIImage(systemName: "star"),
+                  userAge: 20),
+        UserModel(userFirstName: "Pavel",
+                  userSurname: "Harvey",
+                  userPhoto: UIImage(systemName: "star"),
+                  userAge: 20),
+        UserModel(userFirstName: "Maria",
+                  userSurname: "Fernando",
+                  userPhoto: UIImage(systemName: "star"),
+                  userAge: 20),
+        UserModel(userFirstName: "Nick",
+                  userSurname: "Cage",
+                  userPhoto: UIImage(systemName: "star"),
+                  userAge: 20),
+        UserModel(userFirstName: "Shawn",
+                  userSurname: "Frank",
+                  userPhoto: UIImage(systemName: "star"),
+                  userAge: 20)
     ]
     
-    var userFriends: [String] = []
+    var userFriends: [UserModel] = []
     var friendSectionTitles = [String]()
-    var friendsDictionary = [String: [String]]()
+    var friendsDictionary = [String: [UserModel]]()
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -30,7 +49,8 @@ final class FriendsSearchViewController: UITableViewController {
                            forCellReuseIdentifier: "friendCell")
         
         for friend in friends {
-            let friendKey = String(friend.prefix(1))
+            let friendKey = String(friend.userSurname.prefix(1))
+            
             if var friendValues = friendsDictionary[friendKey] {
                 friendValues.append(friend)
                 friendsDictionary[friendKey] = friendValues
@@ -38,7 +58,7 @@ final class FriendsSearchViewController: UITableViewController {
                 friendsDictionary[friendKey] = [friend]
             }
         }
-        
+
         friendSectionTitles = [String](friendsDictionary.keys)
         friendSectionTitles = friendSectionTitles.sorted(by: { $0 < $1 })
     }
@@ -77,11 +97,8 @@ final class FriendsSearchViewController: UITableViewController {
         if let friendValues = friendsDictionary[friendKey] {
             currentFriend = friendValues[indexPath.row]
         }
-
-        cell.configure(
-            photo: UIImage(named: "\(indexPath.row)") ?? UIImage(),
-            name: currentFriend,
-            surname: "")
+        
+        cell.configure(photo: currentFriend.userPhoto ?? UIImage(), name: currentFriend.userFirstName, surname: currentFriend.userSurname)
 
         return cell
     }
@@ -93,7 +110,7 @@ final class FriendsSearchViewController: UITableViewController {
         }
         
         let friendKey = friendSectionTitles[indexPath.section]
-        var currentFriend = ""
+        var currentFriend = friends[indexPath.row]
         if let friendValues = friendsDictionary[friendKey] {
             currentFriend = friendValues[indexPath.row]
         }
