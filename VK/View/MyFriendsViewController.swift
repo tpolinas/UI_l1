@@ -14,6 +14,19 @@ final class MyFriendsViewController: UITableViewController {
         }
     }
     
+    @objc func longPress(sender: UILongPressGestureRecognizer) {
+
+                if sender.state == UIGestureRecognizer.State.began {
+                    let touchPoint = sender.location(in: tableView)
+                    if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                        // your code here, get the row for the indexPath or do whatever you want
+                        print("Long press Pressed:)")
+                        let friendCell = FriendCell()
+                        friendCell.animateMe()
+                        
+                    }
+                }
+            }
     
     @IBAction func addFriend(segue: UIStoryboardSegue) {
         guard segue.identifier == "addFriend",
@@ -30,6 +43,10 @@ final class MyFriendsViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(MyFriendsViewController.longPress(sender:)))
+                tableView.addGestureRecognizer(longPress)
+        
         tableView.register(UINib(
             nibName: "FriendCell",
             bundle: nil),
