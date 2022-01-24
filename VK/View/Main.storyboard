@@ -253,56 +253,11 @@
                             <outlet property="delegate" destination="YIK-Eb-HSp" id="2jG-8M-9PD"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Friends" id="oNp-A5-3a4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="u21-Dg-yDc">
-                            <connections>
-                                <segue destination="mWE-ql-pxz" kind="show" identifier="addFriend" id="ygL-gL-vSf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="My Friends" id="oNp-A5-3a4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2zP-f7-jXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3085.507246376812" y="-329.46428571428572"/>
-        </scene>
-        <!--Friends Search-->
-        <scene sceneID="tXs-AK-PhH">
-            <objects>
-                <tableViewController id="mWE-ql-pxz" customClass="FriendsSearchViewController" customModule="VK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Avz-oy-e6P">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="E5R-0K-msa">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="l5s-wc-bsR" customClass="FriendCell" customModule="VK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88.5" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l5s-wc-bsR" id="C95-R0-Cc9">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="mWE-ql-pxz" id="UOx-a9-0t8"/>
-                            <outlet property="delegate" destination="mWE-ql-pxz" id="fvB-6q-ofM"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Friends Search" id="peC-Gx-uef"/>
-                    <connections>
-                        <segue destination="PFV-st-VSk" kind="unwind" identifier="addFriend" unwindAction="addFriendWithSegue:" id="hCi-eA-Rge"/>
-                        <segue destination="PFV-st-VSk" kind="unwind" identifier="addFriend" unwindAction="addFriendWithSegue:" id="1cP-eG-yAH"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4BK-ZT-zfZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="PFV-st-VSk" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="4029" y="-617"/>
         </scene>
         <!--Profile-->
         <scene sceneID="a4k-wZ-fFK">
@@ -312,7 +267,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1cl-vo-5qM">
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="1" minimumInteritemSpacing="1" id="1cl-vo-5qM">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -337,7 +292,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhI-qx-bWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4683" y="-119"/>
+            <point key="canvasLocation" x="4010" y="-329"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Ze2-PB-tq2">
