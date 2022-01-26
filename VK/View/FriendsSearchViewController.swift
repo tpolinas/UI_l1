@@ -74,10 +74,17 @@ final class FriendsSearchViewController: UITableViewController {
         letersOfNames = []
         
         // создание сета из первых букв имени, чтобы не было повторов
-        for name in namesListModifed {
+        for friend in friends {
+
+            let friendKey = String(friend.userSurname.prefix(1))
             
-            // insert - вставка элемента в определенное место массива
-            letersSet.insert(name[name.startIndex])
+            if var friendValues = friendsDictionary[friendKey] {
+                friendValues.append(friend)
+                friendsDictionary[friendKey] = friendValues
+            } else {
+                friendsDictionary[friendKey] = [friend]
+            }
+            letersSet.insert(Character(friendKey))
         }
         
         // заполнение массива строк из букв имен
