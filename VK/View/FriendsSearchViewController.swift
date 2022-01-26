@@ -8,82 +8,194 @@
 import UIKit
 
 final class FriendsSearchViewController: UITableViewController {
-
-    var friends = [
+    
+    private var friends = [
         UserModel(userFirstName: "Polina",
                   userSurname: "James",
-                  userPhoto: UIImage(named: "2"),
+                  userPhoto: UIImage(systemName: "star"),
                   userAge: 20),
         UserModel(userFirstName: "Ivan",
                   userSurname: "Gomez",
-                  userPhoto: UIImage(named: "3"),
+                  userPhoto: UIImage(systemName: "star"),
                   userAge: 20),
         UserModel(userFirstName: "Pavel",
                   userSurname: "Harvey",
-                  userPhoto: UIImage(named: "5"),
+                  userPhoto: UIImage(systemName: "star"),
                   userAge: 20),
         UserModel(userFirstName: "Maria",
                   userSurname: "Fernando",
-                  userPhoto: UIImage(named: "6"),
+                  userPhoto: UIImage(systemName: "star"),
                   userAge: 20),
         UserModel(userFirstName: "Nick",
                   userSurname: "Cage",
-                  userPhoto: UIImage(named: "7"),
+                  userPhoto: UIImage(systemName: "star"),
                   userAge: 20),
         UserModel(userFirstName: "Shawn",
                   userSurname: "Frank",
-                  userPhoto: UIImage(named: "9"),
+                  userPhoto: UIImage(systemName: "star"),
                   userAge: 20)
     ]
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var userFriends: [UserModel] = []
     var friendSectionTitles = [String]()
     var friendsDictionary = [String: [UserModel]]()
-
+    
+    //эталонный массив с именами для сравнения при поиске
+    var perfectArrayWithNames: [String] = []
+    
+    // массив с именами меняется (при поиске) и используется в таблице
+    var namesListModifed: [String] = []
+    
+    var letersOfNames: [String] = []
+    
+    // создание массива из имен пользователей
+    func arrayOfUserNames() {
+        
+        // удаляем все элементы эталонного массива с именами
+        perfectArrayWithNames.removeAll()
+        
+        // получаем число элементов массива
+        for item in 0...(friends.count - 1) {
+            
+            // добавляем элементы в эталонный массив с именами
+            perfectArrayWithNames.append(friends[item].userFirstName)
+        }
+        namesListModifed = perfectArrayWithNames
+    }
+    
+    // созданием массива из начальных букв имен пользователй по алфавиту
+    func sortNamesAlphabetically() {
+        
+        var letersSet = Set<Character>()
+        
+        // обнуляем массив на случай повторного использования
+        letersOfNames = []
+        
+        // создание сета из первых букв имени, чтобы не было повторов
+        for name in namesListModifed {
+            
+            // insert - вставка элемента в определенное место массива
+            letersSet.insert(name[name.startIndex])
+        }
+        
+        // заполнение массива строк из букв имен
+        // возвращам новый отсортированный массив, никак не изменяя старый
+        for leter in letersSet.sorted() {
+            letersOfNames.append(String(leter))
+        }
+    }
+    
+    func nameFriend(_ indexPath: IndexPath) -> String {
+        var namesRows = [String]()
+        for name in namesListModifed.sorted() {
+            if letersOfNames[indexPath.section].contains(name.first!) {
+                namesRows.append(name)
+            }
+        }
+        return namesRows[indexPath.row]
+    }
+    
+    func surnameFriend(_ indexPath: IndexPath) -> String? {
+        for friend in friends {
+            let namesRows = nameFriend(indexPath)
+            if friend.userFirstName.contains(namesRows) {
+                return friend.userSurname
+            }
+        }
+        return nil
+    }
+    
+    func photoFriend(_ indexPath: IndexPath) -> UIImage? {
+        for friend in friends {
+            let namesRows = nameFriend(indexPath)
+            if friend.userFirstName.contains(namesRows) {
+                return friend.userPhoto
+            }
+        }
+        return nil
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
+        arrayOfUserNames()
+        sortNamesAlphabetically()
+        
         tableView.register(UINib(
             nibName: "FriendCell",
             bundle: nil),
                            forCellReuseIdentifier: "friendCell")
         
-        for friend in friends {
-            let friendKey = String(friend.userSurname.prefix(1))
-            
-            if var friendValues = friendsDictionary[friendKey] {
-                friendValues.append(friend)
-                friendsDictionary[friendKey] = friendValues
-            } else {
-                friendsDictionary[friendKey] = [friend]
-            }
-        }
-
-        friendSectionTitles = [String](friendsDictionary.keys)
-        friendSectionTitles = friendSectionTitles.sorted(by: { $0 < $1 })
     }
     
     // MARK: - Table view data source
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        namesListModifed = searchText.isEmpty ? perfectArrayWithNames : perfectArrayWithNames.filter { (item: String) -> Bool in
+            return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        }
+        
+        // создаем заново массив заглавных букв для хедера
+        sortNamesAlphabetically()
+        tableView.reloadData()
+    }
+    
+    // отмена поиска (через кнопку Cancel)
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.searchBar.showsCancelButton = true // показыть кнопку Cancel
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false // скрыть кнопку Cancel
+        searchBar.text = nil
+        arrayOfUserNames() // возвращаем массив имен
+        sortNamesAlphabetically()  // создаем заново массив заглавных букв для хедера
+        tableView.reloadData() //обновить таблицу
+        searchBar.resignFirstResponder() // скрыть клавиатуру
+    }
+    
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        friendSectionTitles.count
+        
+        letersOfNames.count
+    }
+    
+    // настройка хедера ячеек и добавление в него букв
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView()
+        // цвет и прозрачность хедера
+        header.backgroundColor = UIColor.white.withAlphaComponent(0.2)
+        // координаты размещения букв
+        let leter: UILabel = UILabel(frame: CGRect(x: 27, y: 5, width: 20, height: 20))
+        // цвет и прозрачность букв
+        leter.textColor = UIColor.cyan.withAlphaComponent(1)
+        leter.text = letersOfNames[section]
+        // размер и толщина букв
+        leter.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.medium)
+        header.addSubview(leter)
+        
+        return header
+    }
+    
+    // список букв для навигации (справа контрол)
+    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return letersOfNames
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let friendKey = friendSectionTitles[section]
-        if let friendValues = friendsDictionary[friendKey] {
-            return friendValues.count
+        var countOfRows = 0
+        // сравниваем массив букв и заглавные буквы каждого имени, выводим количество ячеек в соотвествии именам на отдельную букву
+        for name in namesListModifed {
+            if letersOfNames[section].contains(name.first!) {
+                countOfRows += 1
+            }
         }
+        return countOfRows
         
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        friendSectionTitles[section]
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        friendSectionTitles
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -91,25 +203,22 @@ final class FriendsSearchViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? FriendCell
         else { return UITableViewCell() }
         
-        var currentFriend = friends[indexPath.row]
+        cell.friendName.text = nameFriend(indexPath)
+        cell.friendSurname.text = surnameFriend(indexPath)
+        cell.friendPhoto.image = photoFriend(indexPath)
         
-        let friendKey = friendSectionTitles[indexPath.section]
-        if let friendValues = friendsDictionary[friendKey] {
-            currentFriend = friendValues[indexPath.row]
-        }
-        
-        cell.configure(photo: currentFriend.userPhoto ?? UIImage(), name: currentFriend.userFirstName, surname: currentFriend.userSurname)
-
         return cell
     }
-
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        defer {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        
-        let friendKey = friendSectionTitles[indexPath.section]
+        defer { tableView.deselectRow(
+            at: indexPath,
+            animated: true)}
+        performSegue(
+            withIdentifier: "showProfile",
+            sender: nil)
+        let friendKey = letersOfNames[indexPath.section]
         var currentFriend = friends[indexPath.row]
         if let friendValues = friendsDictionary[friendKey] {
             currentFriend = friendValues[indexPath.row]
@@ -118,59 +227,15 @@ final class FriendsSearchViewController: UITableViewController {
         if userFriends.firstIndex(of: currentFriend) == nil {
             userFriends.append(currentFriend)
         }
-        
-        self.performSegue(withIdentifier: "addFriend", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "addFriend",
-               let myFriendsViewController = segue.destination as? MyFriendsViewController {
-                myFriendsViewController.friends = userFriends
+        if segue.identifier == "showProfile",
+           let myFriendsViewController = segue.destination as? MyFriendsViewController {
+            myFriendsViewController.friends = userFriends
         }
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+extension UITableViewController: UISearchBarDelegate {
 }

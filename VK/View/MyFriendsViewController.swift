@@ -8,74 +8,28 @@
 import UIKit
 
 final class MyFriendsViewController: UITableViewController {
+    var friends = [UserModel]() {
+        didSet {
+            //
+        }
+    }
     
-    var friends = [
-        UserModel(userFirstName: "Polina",
-                  userSurname: "James",
-                  userPhoto: UIImage(named: "2"),
-                  userAge: 20),
-        UserModel(userFirstName: "Ivan",
-                  userSurname: "Gomez",
-                  userPhoto: UIImage(named: "3"),
-                  userAge: 20),
-        UserModel(userFirstName: "Pavel",
-                  userSurname: "Harvey",
-                  userPhoto: UIImage(named: "5"),
-                  userAge: 20),
-        UserModel(userFirstName: "Maria",
-                  userSurname: "Fernando",
-                  userPhoto: UIImage(named: "6"),
-                  userAge: 20),
-        UserModel(userFirstName: "Nick",
-                  userSurname: "Cage",
-                  userPhoto: UIImage(named: "7"),
-                  userAge: 20),
-        UserModel(userFirstName: "Shawn",
-                  userSurname: "Frank",
-                  userPhoto: UIImage(named: "9"),
-                  userAge: 20)
-    ]
     
-    var userFriends: [UserModel] = []
-    var friendSectionTitles = [String]()
-    var friendsDictionary = [String: [UserModel]]()
-    
-    @objc func longPress(sender: UILongPressGestureRecognizer) {
-
-                if sender.state == UIGestureRecognizer.State.began {
-                    let touchPoint = sender.location(in: tableView)
-                    if let indexPath = tableView.indexPathForRow(at: touchPoint) {
-                        // your code here, get the row for the indexPath or do whatever you want
-                        print("Long press Pressed:)")
-                        let friendCell = FriendCell()
-                        friendCell.animateMe()
-                        
-                    }
-                }
-            }
+    @IBAction func addFriend(segue: UIStoryboardSegue) {
+        guard segue.identifier == "addFriend",
+            let allFriendsViewController = segue.source as? FriendsSearchViewController
+        else { return }
+        
+        friends = allFriendsViewController.userFriends.sorted {
+            $0.userSurname < $1.userSurname
+        }
+        
+        tableView.reloadData()
+    }
     
     // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        for friend in friends {
-            let friendKey = String(friend.userSurname.prefix(1))
-            
-            if var friendValues = friendsDictionary[friendKey] {
-                friendValues.append(friend)
-                friendsDictionary[friendKey] = friendValues
-            } else {
-                friendsDictionary[friendKey] = [friend]
-            }
-        }
-
-        friendSectionTitles = [String](friendsDictionary.keys)
-        friendSectionTitles = friendSectionTitles.sorted(by: { $0 < $1 })
-        
-        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(MyFriendsViewController.longPress(sender:)))
-                tableView.addGestureRecognizer(longPress)
-        
         tableView.register(UINib(
             nibName: "FriendCell",
             bundle: nil),
@@ -83,26 +37,8 @@ final class MyFriendsViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        friendSectionTitles.count
-    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let friendKey = friendSectionTitles[section]
-        if let friendValues = friendsDictionary[friendKey] {
-            return friendValues.count
-        }
-        
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        friendSectionTitles[section]
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        friendSectionTitles
+        friends.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -110,12 +46,7 @@ final class MyFriendsViewController: UITableViewController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as? FriendCell
         else { return UITableViewCell() }
         
-        var currentFriend = friends[indexPath.row]
-        
-        let friendKey = friendSectionTitles[indexPath.section]
-        if let friendValues = friendsDictionary[friendKey] {
-            currentFriend = friendValues[indexPath.row]
-        }
+        let currentFriend = friends[indexPath.row]
         
         cell.configure(photo: currentFriend.userPhoto ?? UIImage(), name: currentFriend.userFirstName, surname: currentFriend.userSurname)
 
@@ -129,6 +60,25 @@ final class MyFriendsViewController: UITableViewController {
         performSegue(
             withIdentifier: "showProfile",
             sender: nil)
+    }
+    
+    override func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            friends.remove(at: indexPath.row)
+            tableView.deleteRows(
+                at: [indexPath],
+                with: .fade)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addFriend",
+           let allFriendsViewController = segue.destination as? FriendsSearchViewController {
+            allFriendsViewController.userFriends = friends
+        }
     }
 }
 

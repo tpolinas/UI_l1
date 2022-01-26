@@ -25,6 +25,7 @@
 		3AC5EC392772403800644BF2 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5EC372772403800644BF2 /* GroupCell.swift */; };
 		3AC5EC3A2772403800644BF2 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC5EC382772403800644BF2 /* GroupCell.xib */; };
 		3AC5EC3D27724E0D00644BF2 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5EC3B27724E0D00644BF2 /* FriendCell.swift */; };
+		3AC5EC4027724F3100644BF2 /* FriendsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5EC3F27724F3100644BF2 /* FriendsSearchViewController.swift */; };
 		3ACC007D277664D900FDF507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC007C277664D800FDF507 /* Assets.xcassets */; };
 		3AEFA832276F44A900DA7F3F /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA831276F44A900DA7F3F /* NavigationViewController.swift */; };
 		3AEFA834276F44EA00DA7F3F /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA833276F44EA00DA7F3F /* MyFriendsViewController.swift */; };
@@ -52,6 +53,7 @@
 		3AC5EC372772403800644BF2 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GroupCell.swift; path = VK/View/GroupCell.swift; sourceTree = SOURCE_ROOT; };
 		3AC5EC382772403800644BF2 /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = GroupCell.xib; path = VK/View/GroupCell.xib; sourceTree = SOURCE_ROOT; };
 		3AC5EC3B27724E0D00644BF2 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendCell.swift; path = VK/View/FriendCell.swift; sourceTree = SOURCE_ROOT; };
+		3AC5EC3F27724F3100644BF2 /* FriendsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsSearchViewController.swift; path = VK/View/FriendsSearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		3ACC007C277664D800FDF507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AEFA831276F44A900DA7F3F /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = VK/View/NavigationViewController.swift; sourceTree = SOURCE_ROOT; };
 		3AEFA833276F44EA00DA7F3F /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyFriendsViewController.swift; path = VK/View/MyFriendsViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -125,6 +127,7 @@
 				3A130D2727734C4000280256 /* ProfileCollectionViewController.swift */,
 				3AC5EC3327723C7200644BF2 /* AllGroupsViewController.swift */,
 				3AEFA835276F44FF00DA7F3F /* MyGroupsViewController.swift */,
+				3AC5EC3F27724F3100644BF2 /* FriendsSearchViewController.swift */,
 				3AEFA833276F44EA00DA7F3F /* MyFriendsViewController.swift */,
 				3AEFA831276F44A900DA7F3F /* NavigationViewController.swift */,
 				3A3F1E9A276BDD9D0058FD50 /* LoginViewController.swift */,
@@ -258,6 +261,7 @@
 				3A3F1E97276BDD9D0058FD50 /* AppDelegate.swift in Sources */,
 				3A3F1E99276BDD9D0058FD50 /* SceneDelegate.swift in Sources */,
 				3AC5EC3427723C7200644BF2 /* AllGroupsViewController.swift in Sources */,
+				3AC5EC4027724F3100644BF2 /* FriendsSearchViewController.swift in Sources */,
 				3AC5EC392772403800644BF2 /* GroupCell.swift in Sources */,
 				3A41839C2776321A004980D6 /* AvatarView.swift in Sources */,
 				3A130D2527734A3500280256 /* ProfileCollectionCell.swift in Sources */,

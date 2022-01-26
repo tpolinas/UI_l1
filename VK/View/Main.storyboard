@@ -227,37 +227,48 @@
             </objects>
             <point key="canvasLocation" x="3935" y="402"/>
         </scene>
-        <!--My Friends-->
-        <scene sceneID="bsD-XD-51g">
+        <!--Friends Search-->
+        <scene sceneID="tXs-AK-PhH">
             <objects>
-                <tableViewController id="YIK-Eb-HSp" customClass="MyFriendsViewController" customModule="VK" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="QgF-4T-5HD">
+                <tableViewController id="mWE-ql-pxz" customClass="FriendsSearchViewController" customModule="VK" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Avz-oy-e6P">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="E5R-0K-msa">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="15Y-hC-8hX">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="showProfile" id="l5s-wc-bsR" customClass="FriendCell" customModule="VK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="15Y-hC-8hX" id="bDM-OX-euZ">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l5s-wc-bsR" id="C95-R0-Cc9">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="VEi-FO-OwN" kind="show" identifier="showProfile" id="gK6-xQ-OZQ"/>
+                                    <segue destination="VEi-FO-OwN" kind="show" identifier="showProfile" trigger="accessoryAction" id="Pen-Kh-G2p"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="YIK-Eb-HSp" id="rmo-O5-kR5"/>
-                            <outlet property="delegate" destination="YIK-Eb-HSp" id="2jG-8M-9PD"/>
+                            <outlet property="dataSource" destination="mWE-ql-pxz" id="UOx-a9-0t8"/>
+                            <outlet property="delegate" destination="mWE-ql-pxz" id="fvB-6q-ofM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Friends" id="oNp-A5-3a4"/>
+                    <navigationItem key="navigationItem" title="Friends Search" id="peC-Gx-uef"/>
+                    <connections>
+                        <outlet property="searchBar" destination="E5R-0K-msa" id="OXm-l2-FIo"/>
+                        <segue destination="PFV-st-VSk" kind="unwind" identifier="addFriend" unwindAction="addFriendWithSegue:" id="hCi-eA-Rge"/>
+                        <segue destination="PFV-st-VSk" kind="unwind" identifier="addFriend" unwindAction="addFriendWithSegue:" id="1cP-eG-yAH"/>
+                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2zP-f7-jXl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4BK-ZT-zfZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="PFV-st-VSk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3085.507246376812" y="-329.46428571428572"/>
+            <point key="canvasLocation" x="3026" y="-329"/>
         </scene>
         <!--Profile-->
         <scene sceneID="a4k-wZ-fFK">
@@ -292,7 +303,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jhI-qx-bWs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4010" y="-329"/>
+            <point key="canvasLocation" x="3872" y="-329"/>
         </scene>
         <!--Friends-->
         <scene sceneID="Ze2-PB-tq2">
@@ -308,7 +319,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YIK-Eb-HSp" kind="relationship" relationship="rootViewController" id="9xQ-2y-T86"/>
+                        <segue destination="mWE-ql-pxz" kind="relationship" relationship="rootViewController" id="NP3-Im-WC4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWT-sh-Caa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

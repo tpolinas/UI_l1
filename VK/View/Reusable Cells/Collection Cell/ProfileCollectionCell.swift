@@ -16,7 +16,6 @@ class ProfileCollectionCell: UICollectionViewCell {
     var isLiked: Bool = false
     
     @IBAction func like(_ sender: Any) {
-        
         animate()
     }
     
