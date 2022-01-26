@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mZy-G1-PDX">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -9,6 +9,53 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Loading Animation TableVC-->
+        <scene sceneID="NeR-Ec-J0w">
+            <objects>
+                <viewController id="mZy-G1-PDX" customClass="LoadingAnimationTableVC" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ibu-0e-gHw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yta-CD-lRv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.38931217270000001" green="0.76942896839999997" blue="0.64162565680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain"/>
+                                <connections>
+                                    <action selector="didTapAnimate:" destination="mZy-G1-PDX" eventType="touchUpInside" id="QQB-K6-dWB"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToLogin" modalPresentationStyle="fullScreen" id="kcR-Z2-gLf"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbH-Kt-lVJ">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="cRQ-Sp-kix"/>
+                                    <constraint firstAttribute="width" constant="250" id="lxY-mm-096"/>
+                                    <constraint firstAttribute="width" secondItem="dbH-Kt-lVJ" secondAttribute="height" multiplier="1:1" id="rr3-uv-E2U"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OzP-9h-DBK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Yta-CD-lRv" firstAttribute="leading" secondItem="OzP-9h-DBK" secondAttribute="leading" id="2M7-lb-wAh"/>
+                            <constraint firstItem="Yta-CD-lRv" firstAttribute="top" secondItem="OzP-9h-DBK" secondAttribute="top" id="Ns3-z0-YfJ"/>
+                            <constraint firstItem="Yta-CD-lRv" firstAttribute="trailing" secondItem="OzP-9h-DBK" secondAttribute="trailing" id="O3d-DF-OkU"/>
+                            <constraint firstItem="Yta-CD-lRv" firstAttribute="bottom" secondItem="OzP-9h-DBK" secondAttribute="bottom" id="Sn1-3t-j61"/>
+                            <constraint firstItem="dbH-Kt-lVJ" firstAttribute="centerX" secondItem="Ibu-0e-gHw" secondAttribute="centerX" id="X3G-71-ihy"/>
+                            <constraint firstItem="Yta-CD-lRv" firstAttribute="centerX" secondItem="Ibu-0e-gHw" secondAttribute="centerX" id="ZfK-da-fQd"/>
+                            <constraint firstItem="dbH-Kt-lVJ" firstAttribute="centerY" secondItem="Ibu-0e-gHw" secondAttribute="centerY" id="oy1-Cd-OXs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="someImageView" destination="dbH-Kt-lVJ" id="bdG-Q3-AiU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UuP-IS-d9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-504.34782608695656" y="34.821428571428569"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -144,6 +191,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <navigationItem key="navigationItem" id="oHf-dw-E5a"/>
                     <connections>
                         <outlet property="passwordTextField" destination="5PI-KY-8pg" id="KBj-Gt-dS5"/>
                         <outlet property="scrollView" destination="WaF-X3-38p" id="DzC-8S-M5D"/>
