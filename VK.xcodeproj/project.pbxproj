@@ -28,7 +28,6 @@
 		3AC5EC4027724F3100644BF2 /* FriendsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5EC3F27724F3100644BF2 /* FriendsSearchViewController.swift */; };
 		3ACC007D277664D900FDF507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ACC007C277664D800FDF507 /* Assets.xcassets */; };
 		3AEFA832276F44A900DA7F3F /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA831276F44A900DA7F3F /* NavigationViewController.swift */; };
-		3AEFA834276F44EA00DA7F3F /* MyFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA833276F44EA00DA7F3F /* MyFriendsViewController.swift */; };
 		3AEFA836276F44FF00DA7F3F /* MyGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEFA835276F44FF00DA7F3F /* MyGroupsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,7 +55,6 @@
 		3AC5EC3F27724F3100644BF2 /* FriendsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FriendsSearchViewController.swift; path = VK/View/FriendsSearchViewController.swift; sourceTree = SOURCE_ROOT; };
 		3ACC007C277664D800FDF507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3AEFA831276F44A900DA7F3F /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NavigationViewController.swift; path = VK/View/NavigationViewController.swift; sourceTree = SOURCE_ROOT; };
-		3AEFA833276F44EA00DA7F3F /* MyFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyFriendsViewController.swift; path = VK/View/MyFriendsViewController.swift; sourceTree = SOURCE_ROOT; };
 		3AEFA835276F44FF00DA7F3F /* MyGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MyGroupsViewController.swift; path = VK/View/MyGroupsViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -128,7 +126,6 @@
 				3AC5EC3327723C7200644BF2 /* AllGroupsViewController.swift */,
 				3AEFA835276F44FF00DA7F3F /* MyGroupsViewController.swift */,
 				3AC5EC3F27724F3100644BF2 /* FriendsSearchViewController.swift */,
-				3AEFA833276F44EA00DA7F3F /* MyFriendsViewController.swift */,
 				3AEFA831276F44A900DA7F3F /* NavigationViewController.swift */,
 				3A3F1E9A276BDD9D0058FD50 /* LoginViewController.swift */,
 			);
@@ -250,7 +247,6 @@
 			files = (
 				3AEFA836276F44FF00DA7F3F /* MyGroupsViewController.swift in Sources */,
 				3AB2A8F227735AC6009F07F8 /* GroupModel.swift in Sources */,
-				3AEFA834276F44EA00DA7F3F /* MyFriendsViewController.swift in Sources */,
 				3AEFA832276F44A900DA7F3F /* NavigationViewController.swift in Sources */,
 				3A3F1E9B276BDD9D0058FD50 /* LoginViewController.swift in Sources */,
 				3A41839A27762C6A004980D6 /* LogoView.swift in Sources */,

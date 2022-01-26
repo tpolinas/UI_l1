@@ -231,8 +231,8 @@ final class FriendsSearchViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showProfile",
-           let myFriendsViewController = segue.destination as? MyFriendsViewController {
-            myFriendsViewController.friends = userFriends
+           let profileCollectionVC = segue.destination as? ProfileCollectionViewController {
+            profileCollectionVC.friends = userFriends
         }
     }
 }

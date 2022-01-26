@@ -8,6 +8,8 @@
 import UIKit
 
 class ProfileCollectionViewController: UICollectionViewController {
+    
+    var friends = [UserModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
