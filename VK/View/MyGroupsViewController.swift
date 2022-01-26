@@ -23,13 +23,31 @@ final class MyGroupsViewController: UITableViewController {
     tableView.reloadData()
 }
     
+    @objc func longPress(sender: UILongPressGestureRecognizer) {
+
+                if sender.state == UIGestureRecognizer.State.began {
+                    let touchPoint = sender.location(in: tableView)
+                    if let indexPath = tableView.indexPathForRow(at: touchPoint) {
+                        print("Long press Pressed:)")
+                        let groupCell = GroupCell()
+                        groupCell.animateMe()
+                        
+                    }
+                }
+            }
+
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.register(UINib(
             nibName: "GroupCell",
             bundle: nil),
                            forCellReuseIdentifier: "groupCell")
+        
+        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(MyGroupsViewController.longPress(sender:)))
+                tableView.addGestureRecognizer(longPress)
     }
     
     // MARK: - Table view data source
