@@ -60,7 +60,7 @@ final class FriendsSearchViewController: UITableViewController {
         for item in 0...(friends.count - 1) {
             
             // добавляем элементы в эталонный массив с именами
-            perfectArrayWithNames.append(friends[item].userFirstName)
+            perfectArrayWithNames.append(friends[item].userSurname)
         }
         namesListModifed = perfectArrayWithNames
     }
@@ -87,7 +87,7 @@ final class FriendsSearchViewController: UITableViewController {
         }
     }
     
-    func nameFriend(_ indexPath: IndexPath) -> String {
+    func surnameFriend(_ indexPath: IndexPath) -> String {
         var namesRows = [String]()
         for name in namesListModifed.sorted() {
             if letersOfNames[indexPath.section].contains(name.first!) {
@@ -97,11 +97,11 @@ final class FriendsSearchViewController: UITableViewController {
         return namesRows[indexPath.row]
     }
     
-    func surnameFriend(_ indexPath: IndexPath) -> String? {
+    func nameFriend(_ indexPath: IndexPath) -> String? {
         for friend in friends {
-            let namesRows = nameFriend(indexPath)
-            if friend.userFirstName.contains(namesRows) {
-                return friend.userSurname
+            let namesRows = surnameFriend(indexPath)
+            if friend.userSurname.contains(namesRows) {
+                return friend.userFirstName
             }
         }
         return nil
@@ -109,8 +109,8 @@ final class FriendsSearchViewController: UITableViewController {
     
     func photoFriend(_ indexPath: IndexPath) -> UIImage? {
         for friend in friends {
-            let namesRows = nameFriend(indexPath)
-            if friend.userFirstName.contains(namesRows) {
+            let namesRows = surnameFriend(indexPath)
+            if friend.userSurname.contains(namesRows) {
                 return friend.userPhoto
             }
         }
