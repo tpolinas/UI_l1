@@ -37,7 +37,8 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OzP-9h-DBK"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.38931217270000001" green="0.76942896839999997" blue="0.64162565680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Yta-CD-lRv" firstAttribute="leading" secondItem="OzP-9h-DBK" secondAttribute="leading" id="2M7-lb-wAh"/>
                             <constraint firstItem="Yta-CD-lRv" firstAttribute="top" secondItem="OzP-9h-DBK" secondAttribute="top" id="Ns3-z0-YfJ"/>

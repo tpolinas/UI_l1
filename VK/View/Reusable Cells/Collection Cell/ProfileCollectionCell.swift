@@ -8,9 +8,7 @@
 import UIKit
 
 class ProfileCollectionCell: UICollectionViewCell {
-    @IBOutlet var name: UILabel!
     @IBOutlet var photo: UIImageView!
-    @IBOutlet var age: UILabel!
     @IBOutlet var likeButton: UIButton!
     
     var isLiked: Bool = false
@@ -43,8 +41,6 @@ class ProfileCollectionCell: UICollectionViewCell {
         name: String,
         photo: UIImage?,
         age: String) {
-            self.name.text = name
             self.photo.image = photo
-            self.age.text = age
         }
 }
