@@ -15,5 +15,7 @@ struct UserModel: Equatable {
     let userFirstName: String
     let userSurname: String
     let userPhoto: UIImage?
+    var userPhotos: [UIImage]
     let userAge: Int
+    let id: Int
 }
