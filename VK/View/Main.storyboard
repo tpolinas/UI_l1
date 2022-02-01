@@ -19,7 +19,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yta-CD-lRv">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.38931217270000001" green="0.76942896839999997" blue="0.64162565680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
@@ -37,8 +37,8 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OzP-9h-DBK"/>
-                        <color key="backgroundColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="0.38931217270000001" green="0.76942896839999997" blue="0.64162565680000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Yta-CD-lRv" firstAttribute="leading" secondItem="OzP-9h-DBK" secondAttribute="leading" id="2M7-lb-wAh"/>
                             <constraint firstItem="Yta-CD-lRv" firstAttribute="top" secondItem="OzP-9h-DBK" secondAttribute="top" id="Ns3-z0-YfJ"/>
@@ -134,7 +134,8 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jev-1X-ZFv">
                                         <rect key="frame" x="114" y="544" width="186" height="31"/>
-                                        <color key="backgroundColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Enter">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -370,6 +371,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="sel-QJ-JDV" kind="relationship" relationship="viewControllers" id="VvY-5U-LUp"/>
@@ -451,7 +454,7 @@
             <point key="canvasLocation" x="4897" y="-329"/>
         </scene>
     </scenes>
-    <color key="tintColor" red="0.369075875" green="0.72943434519999995" blue="0.60827420070000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+    <color key="tintColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="background" width="640" height="1137"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>
