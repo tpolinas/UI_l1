@@ -44,9 +44,8 @@ class ProfileCollectionViewController: UICollectionViewController {
                 as? ProfileCollectionCell
         else { return UICollectionViewCell() }
         cell.configure(
-            name: "Some User",
             photo: UIImage(named: "\(indexPath.row)"),
-            age: "Age: 24")
+            like: UIImage(systemName: "heart"))
     
         return cell
     }

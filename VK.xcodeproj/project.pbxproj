@@ -23,6 +23,7 @@
 		3A66A2F127A43A8C00DB3BA3 /* ImageScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66A2F027A43A8C00DB3BA3 /* ImageScrollView.swift */; };
 		3A66A2F327A43E9B00DB3BA3 /* PhotosFriendCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A66A2F227A43E9B00DB3BA3 /* PhotosFriendCollectionViewController.swift */; };
 		3A7CE40627A18E0800456157 /* LoadingAnimationTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7CE40527A18E0800456157 /* LoadingAnimationTableVC.swift */; };
+		3AA4252527A7ED8A009FE5B2 /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA4252427A7ED8A009FE5B2 /* LikeButton.swift */; };
 		3AB2A8F027735AB3009F07F8 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2A8EF27735AB3009F07F8 /* UserModel.swift */; };
 		3AB2A8F227735AC6009F07F8 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB2A8F127735AC6009F07F8 /* GroupModel.swift */; };
 		3AC5EC3427723C7200644BF2 /* AllGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AC5EC3327723C7200644BF2 /* AllGroupsViewController.swift */; };
@@ -54,6 +55,7 @@
 		3A66A2F027A43A8C00DB3BA3 /* ImageScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageScrollView.swift; path = VK/ViewControllers/ImageScrollView.swift; sourceTree = SOURCE_ROOT; };
 		3A66A2F227A43E9B00DB3BA3 /* PhotosFriendCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotosFriendCollectionViewController.swift; path = VK/View/PhotosFriendCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
 		3A7CE40527A18E0800456157 /* LoadingAnimationTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoadingAnimationTableVC.swift; path = VK/View/LoadingAnimationTableVC.swift; sourceTree = SOURCE_ROOT; };
+		3AA4252427A7ED8A009FE5B2 /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LikeButton.swift; path = "Reusable Cells/Collection Cell/LikeButton.swift"; sourceTree = "<group>"; };
 		3AB2A8EF27735AB3009F07F8 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3AB2A8F127735AC6009F07F8 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		3AC5EC3327723C7200644BF2 /* AllGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AllGroupsViewController.swift; path = VK/View/AllGroupsViewController.swift; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -118,6 +120,7 @@
 		3A3F1EAA276BDDAA0058FD50 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3AA4252427A7ED8A009FE5B2 /* LikeButton.swift */,
 				3A66A2F027A43A8C00DB3BA3 /* ImageScrollView.swift */,
 				3AC5EC3527723FCC00644BF2 /* Reusable Cells */,
 				3A3F1EAD276BDE640058FD50 /* Main.storyboard */,
@@ -270,6 +273,7 @@
 				3A31742B27751C4900FA03CE /* GradientView.swift in Sources */,
 				3AC5EC3D27724E0D00644BF2 /* FriendCell.swift in Sources */,
 				3A3F1E97276BDD9D0058FD50 /* AppDelegate.swift in Sources */,
+				3AA4252527A7ED8A009FE5B2 /* LikeButton.swift in Sources */,
 				3A66A2EF27A43A0B00DB3BA3 /* FriendPhotoViewController.swift in Sources */,
 				3A3F1E99276BDD9D0058FD50 /* SceneDelegate.swift in Sources */,
 				3AC5EC3427723C7200644BF2 /* AllGroupsViewController.swift in Sources */,
