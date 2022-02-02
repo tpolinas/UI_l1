@@ -16,6 +16,11 @@
 		3A3F1E9B276BDD9D0058FD50 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3F1E9A276BDD9D0058FD50 /* LoginViewController.swift */; };
 		3A3F1EA3276BDD9E0058FD50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F1EA1276BDD9E0058FD50 /* LaunchScreen.storyboard */; };
 		3A3F1EAE276BDE640058FD50 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A3F1EAD276BDE640058FD50 /* Main.storyboard */; };
+		3A403D5227A9A96700BE0D4E /* CustomNavigationControllerFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A403D5127A9A96700BE0D4E /* CustomNavigationControllerFriendsViewController.swift */; };
+		3A403D5427A9A98D00BE0D4E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A403D5327A9A98D00BE0D4E /* CustomNavigationController.swift */; };
+		3A403D5627A9A9CE00BE0D4E /* CustomPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A403D5527A9A9CE00BE0D4E /* CustomPushAnimator.swift */; };
+		3A403D5827A9A9EF00BE0D4E /* CustomPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A403D5727A9A9EF00BE0D4E /* CustomPopAnimator.swift */; };
+		3A403D5A27A9AA0D00BE0D4E /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A403D5927A9AA0D00BE0D4E /* CustomInteractiveTransition.swift */; };
 		3A41839A27762C6A004980D6 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41839927762C6A004980D6 /* LogoView.swift */; };
 		3A41839C2776321A004980D6 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A41839B2776321A004980D6 /* AvatarView.swift */; };
 		3A5488E12777A39E004CFC1E /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A5488E02777A39E004CFC1E /* FriendCell.xib */; };
@@ -48,6 +53,11 @@
 		3A3F1EA2276BDD9E0058FD50 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3A3F1EA4276BDD9E0058FD50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3F1EAD276BDE640058FD50 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		3A403D5127A9A96700BE0D4E /* CustomNavigationControllerFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationControllerFriendsViewController.swift; sourceTree = "<group>"; };
+		3A403D5327A9A98D00BE0D4E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		3A403D5527A9A9CE00BE0D4E /* CustomPushAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimator.swift; sourceTree = "<group>"; };
+		3A403D5727A9A9EF00BE0D4E /* CustomPopAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAnimator.swift; sourceTree = "<group>"; };
+		3A403D5927A9AA0D00BE0D4E /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
 		3A41839927762C6A004980D6 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		3A41839B2776321A004980D6 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		3A5488E02777A39E004CFC1E /* FriendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
@@ -124,6 +134,7 @@
 				3A66A2F027A43A8C00DB3BA3 /* ImageScrollView.swift */,
 				3AC5EC3527723FCC00644BF2 /* Reusable Cells */,
 				3A3F1EAD276BDE640058FD50 /* Main.storyboard */,
+				3A403D5027A9A94500BE0D4E /* Transitions */,
 				3A31742A27751C4900FA03CE /* GradientView.swift */,
 				3A41839927762C6A004980D6 /* LogoView.swift */,
 				3A41839B2776321A004980D6 /* AvatarView.swift */,
@@ -155,6 +166,18 @@
 				3A3F1EA1276BDD9E0058FD50 /* LaunchScreen.storyboard */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		3A403D5027A9A94500BE0D4E /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				3A403D5127A9A96700BE0D4E /* CustomNavigationControllerFriendsViewController.swift */,
+				3A403D5527A9A9CE00BE0D4E /* CustomPushAnimator.swift */,
+				3A403D5327A9A98D00BE0D4E /* CustomNavigationController.swift */,
+				3A403D5727A9A9EF00BE0D4E /* CustomPopAnimator.swift */,
+				3A403D5927A9AA0D00BE0D4E /* CustomInteractiveTransition.swift */,
+			);
+			path = Transitions;
 			sourceTree = "<group>";
 		};
 		3AB2A8EE27735A8C009F07F8 /* Model */ = {
@@ -265,9 +288,11 @@
 				3AEFA832276F44A900DA7F3F /* NavigationViewController.swift in Sources */,
 				3A66A2F127A43A8C00DB3BA3 /* ImageScrollView.swift in Sources */,
 				3A3F1E9B276BDD9D0058FD50 /* LoginViewController.swift in Sources */,
+				3A403D5427A9A98D00BE0D4E /* CustomNavigationController.swift in Sources */,
 				3A41839A27762C6A004980D6 /* LogoView.swift in Sources */,
 				3A130D2827734C4000280256 /* ProfileCollectionViewController.swift in Sources */,
 				3A7CE40627A18E0800456157 /* LoadingAnimationTableVC.swift in Sources */,
+				3A403D5627A9A9CE00BE0D4E /* CustomPushAnimator.swift in Sources */,
 				3AB2A8F027735AB3009F07F8 /* UserModel.swift in Sources */,
 				3A66A2F327A43E9B00DB3BA3 /* PhotosFriendCollectionViewController.swift in Sources */,
 				3A31742B27751C4900FA03CE /* GradientView.swift in Sources */,
@@ -278,8 +303,11 @@
 				3A3F1E99276BDD9D0058FD50 /* SceneDelegate.swift in Sources */,
 				3AC5EC3427723C7200644BF2 /* AllGroupsViewController.swift in Sources */,
 				3AC5EC4027724F3100644BF2 /* FriendsSearchViewController.swift in Sources */,
+				3A403D5A27A9AA0D00BE0D4E /* CustomInteractiveTransition.swift in Sources */,
 				3AC5EC392772403800644BF2 /* GroupCell.swift in Sources */,
+				3A403D5227A9A96700BE0D4E /* CustomNavigationControllerFriendsViewController.swift in Sources */,
 				3A41839C2776321A004980D6 /* AvatarView.swift in Sources */,
+				3A403D5827A9A9EF00BE0D4E /* CustomPopAnimator.swift in Sources */,
 				3A130D2527734A3500280256 /* ProfileCollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
