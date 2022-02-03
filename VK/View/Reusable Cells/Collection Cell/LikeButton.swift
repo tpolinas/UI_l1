@@ -65,7 +65,7 @@ import UIKit
     }
 
     private func updateSelectionState() {
-        let color = isSelected ? tintColor : .black
+        let color = isSelected ? tintColor : .gray
         countLabel.textColor = color
         likeImageView.tintColor = color
         updateLabelText()
