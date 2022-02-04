@@ -14,14 +14,14 @@ final class FriendsSearchViewController: UITableViewController {
                   userSurname: "Lee",
                   userPhoto: UIImage(named: "G3"),
                   userPhotos: [UIImage(named: "background")!, UIImage(named: "G0")!, UIImage(named: "G1")!, UIImage(named: "G2")!, UIImage(named: "G3")!, UIImage(named: "G4")!, UIImage(named: "G5")!, UIImage(named: "G6")!, UIImage(named: "G7")!, UIImage(named: "G8")!, UIImage(named: "G9")!, UIImage(named: "G10")!, UIImage(named: "G11")!, UIImage(named: "G12")!, UIImage(named: "G13")!, UIImage(named: "G14")!, UIImage(named: "G15")!, UIImage(named: "G16")!, UIImage(named: "G17")!, UIImage(named: "G18")!],
-                  userAge: 20,
-                  id: 2),
+                  userAge: Int(),
+                  id: 0),
         UserModel(userFirstName: "Alex",
                   userSurname: "Lifeson",
                   userPhoto: UIImage(named: "A1"),
                   userPhotos: [UIImage(named: "background")!, UIImage(named: "A0")!, UIImage(named: "A1")!, UIImage(named: "A2")!, UIImage(named: "A3")!, UIImage(named: "A4")!, UIImage(named: "A5")!, UIImage(named: "A6")!, UIImage(named: "A7")!, UIImage(named: "A8")!, UIImage(named: "A9")!, UIImage(named: "A10")!, UIImage(named: "A11")!, UIImage(named: "A12")!, UIImage(named: "A13")!, UIImage(named: "A14")!, UIImage(named: "A15")!, UIImage(named: "A16")!, UIImage(named: "A17")!, UIImage(named: "A18")!],
-                  userAge: 20,
-                  id: 3),
+                  userAge: Int(),
+                  id: 1),
     ]
 
     @IBOutlet weak var searchBar: UISearchBar!
