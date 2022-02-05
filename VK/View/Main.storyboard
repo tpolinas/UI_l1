@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mZy-G1-PDX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -9,54 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Loading Animation TableVC-->
-        <scene sceneID="NeR-Ec-J0w">
-            <objects>
-                <viewController id="mZy-G1-PDX" customClass="LoadingAnimationTableVC" customModule="VK" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ibu-0e-gHw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yta-CD-lRv">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                                <color key="backgroundColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="didTapAnimate:" destination="mZy-G1-PDX" eventType="touchUpInside" id="QQB-K6-dWB"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="goToLogin" modalPresentationStyle="fullScreen" id="kcR-Z2-gLf"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbH-Kt-lVJ">
-                                <rect key="frame" x="82" y="323" width="250" height="250"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="250" id="cRQ-Sp-kix"/>
-                                    <constraint firstAttribute="width" constant="250" id="lxY-mm-096"/>
-                                    <constraint firstAttribute="width" secondItem="dbH-Kt-lVJ" secondAttribute="height" multiplier="1:1" id="rr3-uv-E2U"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="OzP-9h-DBK"/>
-                        <color key="backgroundColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <constraints>
-                            <constraint firstItem="Yta-CD-lRv" firstAttribute="leading" secondItem="OzP-9h-DBK" secondAttribute="leading" id="2M7-lb-wAh"/>
-                            <constraint firstItem="Yta-CD-lRv" firstAttribute="top" secondItem="OzP-9h-DBK" secondAttribute="top" id="Ns3-z0-YfJ"/>
-                            <constraint firstItem="Yta-CD-lRv" firstAttribute="trailing" secondItem="OzP-9h-DBK" secondAttribute="trailing" id="O3d-DF-OkU"/>
-                            <constraint firstItem="Yta-CD-lRv" firstAttribute="bottom" secondItem="OzP-9h-DBK" secondAttribute="bottom" id="Sn1-3t-j61"/>
-                            <constraint firstItem="dbH-Kt-lVJ" firstAttribute="centerX" secondItem="Ibu-0e-gHw" secondAttribute="centerX" id="X3G-71-ihy"/>
-                            <constraint firstItem="Yta-CD-lRv" firstAttribute="centerX" secondItem="Ibu-0e-gHw" secondAttribute="centerX" id="ZfK-da-fQd"/>
-                            <constraint firstItem="dbH-Kt-lVJ" firstAttribute="centerY" secondItem="Ibu-0e-gHw" secondAttribute="centerY" id="oy1-Cd-OXs"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="someImageView" destination="dbH-Kt-lVJ" id="bdG-Q3-AiU"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UuP-IS-d9Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-504.34782608695656" y="34.821428571428569"/>
-        </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -134,7 +86,7 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jev-1X-ZFv">
                                         <rect key="frame" x="114" y="544" width="186" height="31"/>
-                                        <color key="backgroundColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <color key="tintColor" red="0.53737688920000004" green="0.33156298779999999" blue="0.92822124049999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Enter">
@@ -161,14 +113,25 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="y2v-du-YXW"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Cje-kM-Eob"/>
                             </scrollView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B48-LJ-7An">
+                                <rect key="frame" x="135" y="143" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="B48-LJ-7An" secondAttribute="height" multiplier="1:1" id="AaN-O1-tkA"/>
+                                    <constraint firstAttribute="width" constant="250" id="Bda-H2-5yc"/>
+                                    <constraint firstAttribute="height" constant="250" id="yUx-XS-gdZ"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="B48-LJ-7An" secondAttribute="bottom" constant="469" id="04T-6g-1d4"/>
+                            <constraint firstItem="B48-LJ-7An" firstAttribute="width" secondItem="B48-LJ-7An" secondAttribute="height" multiplier="1:1" id="5Jp-Fy-CNd"/>
                             <constraint firstItem="WaF-X3-38p" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9k7-r7-CmN"/>
                             <constraint firstAttribute="bottom" secondItem="WaF-X3-38p" secondAttribute="bottom" id="BmZ-xy-oXV"/>
                             <constraint firstItem="WaF-X3-38p" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MKP-Lv-EoI"/>
                             <constraint firstItem="WaF-X3-38p" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UzS-KL-eeK"/>
                             <constraint firstItem="jev-1X-ZFv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="jfH-2y-kfD"/>
+                            <constraint firstItem="B48-LJ-7An" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="135" id="k9F-LR-U0o"/>
                             <constraint firstItem="WaF-X3-38p" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="oNJ-7M-val"/>
                             <constraint firstAttribute="trailing" secondItem="WaF-X3-38p" secondAttribute="trailing" id="wHh-8v-fUY"/>
                         </constraints>
@@ -195,8 +158,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="oHf-dw-E5a"/>
                     <connections>
+                        <outlet property="loginButton" destination="jev-1X-ZFv" id="sjZ-qM-2NQ"/>
                         <outlet property="passwordTextField" destination="5PI-KY-8pg" id="KBj-Gt-dS5"/>
                         <outlet property="scrollView" destination="WaF-X3-38p" id="DzC-8S-M5D"/>
+                        <outlet property="someImageView" destination="B48-LJ-7An" id="nEB-ML-r8w"/>
                         <outlet property="usernameTextField" destination="HGI-Bk-FE2" id="b2V-Pj-4Yd"/>
                     </connections>
                 </viewController>

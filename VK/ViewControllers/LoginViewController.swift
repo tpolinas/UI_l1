@@ -11,17 +11,21 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var usernameTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
-    
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var someImageView: UIImageView!
+    @IBOutlet var loginButton: UIButton!
+    
     @IBAction func loginButtonPressed(_ sender: Any) {
         print(usernameTextField.text)
         print(passwordTextField.text)
     }
     
+    
     @IBAction func unwindToMain(unwindSegue: UIStoryboardSegue) {
         navigationController?.popToRootViewController(animated: true)
+
     }
-    
+
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,6 +35,11 @@ class LoginViewController: UIViewController {
                 UITapGestureRecognizer(
                     target: self,
                     action: #selector(hideKeyboard)))
+        
+        animate()
+        
+        loginButton.layer.cornerRadius = 15
+        loginButton.layer.masksToBounds = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -145,5 +154,37 @@ class LoginViewController: UIViewController {
     private func clearData() {
         usernameTextField.text = ""
         passwordTextField.text = ""
+    }
+    
+    func animate() {
+        let someLayer = CAShapeLayer()
+        someLayer.path = UIBezierPath.apple().cgPath
+        someLayer.lineWidth = 5.0
+        someLayer.strokeColor = UIColor.white.cgColor
+        someLayer.fillColor = UIColor.clear.cgColor
+        someLayer.strokeStart = 0.0
+        someLayer.strokeEnd = 0.0
+        
+        someImageView.layer.addSublayer(someLayer)
+        
+        let strokeEndAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
+        strokeEndAnimation.fromValue = 1.0
+        strokeEndAnimation.toValue = 1.0
+        
+        let strokeStartAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeStart))
+        strokeStartAnimation.fromValue = -0.10
+        strokeStartAnimation.toValue = 1
+        
+        let animationGroup = CAAnimationGroup()
+        animationGroup.duration = 2.0
+        animationGroup.repeatCount = 3
+        animationGroup.animations = [
+            strokeStartAnimation,
+            strokeEndAnimation,
+        ]
+        
+        someLayer.add(
+            animationGroup,
+            forKey: nil)
     }
 }
