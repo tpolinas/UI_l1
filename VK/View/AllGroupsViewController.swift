@@ -21,6 +21,11 @@ final class AllGroupsViewController: UITableViewController {
         "beauty",
     ]
     
+    @IBOutlet var searchBar: UISearchBar!
+    
+    var isSearching = false
+    var filteredData = [String]()
+    
     var userGroups: [String] = []
     var groupSectionTitles = [String]()
     var groupsDictionary = [String: [String]]()
@@ -56,6 +61,12 @@ final class AllGroupsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if isSearching {
+            return filteredData.count
+        } else {
+            return groups.count
+        }
+        
         let groupKey = groupSectionTitles[section]
         if let groupValues = groupsDictionary[groupKey] {
             return groupValues.count
@@ -84,6 +95,13 @@ final class AllGroupsViewController: UITableViewController {
             currentGroup = groupValues[indexPath.row]
         }
         
+        if isSearching {
+            currentGroup = filteredData[indexPath.row]
+        } else {
+            currentGroup = groups[indexPath.row]
+        }
+        return cell
+        
         cell.configure(
             photo: UIImage(systemName: "person.3.fill") ?? UIImage(),
             name: currentGroup)
@@ -107,6 +125,12 @@ final class AllGroupsViewController: UITableViewController {
             userGroups.append(currentGroup)
         }
         
+        if isSearching {
+            currentGroup = filteredData[indexPath.row]
+        } else {
+            currentGroup = groups[indexPath.row]
+        }
+        
         self.performSegue(withIdentifier: "addGroup", sender: nil)
     }
     
@@ -117,3 +141,18 @@ final class AllGroupsViewController: UITableViewController {
         }
     }
 }
+
+extension AllGroupsViewController {
+     
+     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         filteredData = groups.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+         isSearching = true
+         tableView.reloadData()
+     }
+     
+     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+         isSearching = false
+         searchBar.text = ""
+         tableView.reloadData()
+     }
+ }

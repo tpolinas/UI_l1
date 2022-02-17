@@ -228,12 +228,13 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="NOL-Oj-AET" id="mea-dC-Yo7"/>
-                            <outlet property="delegate" destination="NOL-Oj-AET" id="vhU-rQ-bw6"/>
+                            <outlet property="dataSource" destination="NOL-Oj-AET" id="xCw-qc-ClI"/>
+                            <outlet property="delegate" destination="NOL-Oj-AET" id="O0d-cn-7LK"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups Search" id="gyw-KB-Dow"/>
                     <connections>
+                        <outlet property="searchBar" destination="axs-F8-tkQ" id="XhE-oX-Yxj"/>
                         <segue destination="oRf-MB-FIG" kind="unwind" identifier="addGroup" unwindAction="addGroupWithSegue:" id="ga3-F1-wKh"/>
                     </connections>
                 </tableViewController>
