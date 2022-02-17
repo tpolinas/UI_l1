@@ -234,7 +234,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Groups Search" id="gyw-KB-Dow"/>
                     <connections>
-                        <outlet property="searchBar" destination="axs-F8-tkQ" id="XhE-oX-Yxj"/>
+                        <outlet property="searchBar" destination="axs-F8-tkQ" id="u6V-m1-rUI"/>
                         <segue destination="oRf-MB-FIG" kind="unwind" identifier="addGroup" unwindAction="addGroupWithSegue:" id="ga3-F1-wKh"/>
                     </connections>
                 </tableViewController>

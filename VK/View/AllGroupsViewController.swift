@@ -8,6 +8,7 @@ import UIKit
 
 final class AllGroupsViewController: UITableViewController {
 
+    // All the groups
     var groups = [
         "cats",
         "birds",
@@ -20,14 +21,23 @@ final class AllGroupsViewController: UITableViewController {
         "tech",
         "beauty",
     ]
-    
+
     @IBOutlet var searchBar: UISearchBar!
     
+    // Checks if search is active or not
     var isSearching = false
+
+    // This will hold the filtered array when searching
     var filteredData = [String]()
-    
+
+    // This will hold groups of the user
     var userGroups: [String] = []
+
+    // This will hold section prefixes [a, b, c, etc]
     var groupSectionTitles = [String]()
+
+    // This will hold mapping of prefixes to groups
+    // [a: [art], b: [beauty, books], etc]
     var groupsDictionary = [String: [String]]()
 
     // MARK: - Lifecycle
@@ -55,25 +65,42 @@ final class AllGroupsViewController: UITableViewController {
     }
     
     // MARK: - Table view data source
+    
+    private func getGroups(in section: Int) -> [String]
+    {
+        // The current section should be got from groupSectionTitles
+        let groupKey = groupSectionTitles[section]
+        
+        var groupsInSection: [String] = []
+        
+        // Get groups for current section
+        if let groupValues = groupsDictionary[groupKey] {
+            groupsInSection = groupValues
+        }
+        
+        // Change groups in section if searching
+        if isSearching {
+            groupsInSection = filteredData
+        }
+        
+        return groupsInSection
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return groupSectionTitles.count
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+    override func tableView(_ tableView: UITableView,
+                            numberOfRowsInSection section: Int) -> Int
+    {
         if isSearching {
             return filteredData.count
         } else {
-            return groups.count
+            let groupsInSection = getGroups(in: section)
+            return groupsInSection.count
         }
-        
-        let groupKey = groupSectionTitles[section]
-        if let groupValues = groupsDictionary[groupKey] {
-            return groupValues.count
-        }
-        
-        return 0
     }
+
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return groupSectionTitles[section]
@@ -83,52 +110,35 @@ final class AllGroupsViewController: UITableViewController {
         return groupSectionTitles
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "groupCell", for: indexPath) as? GroupCell
+    override func tableView(_ tableView: UITableView,
+                            cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        guard let cell
+                = tableView.dequeueReusableCell(withIdentifier: "groupCell",
+                                                for: indexPath) as? GroupCell
         else { return UITableViewCell() }
         
-        var currentGroup = groups[indexPath.row]
-        
-        let groupKey = groupSectionTitles[indexPath.section]
-        if let groupValues = groupsDictionary[groupKey] {
-            currentGroup = groupValues[indexPath.row]
-        }
-        
-        if isSearching {
-            currentGroup = filteredData[indexPath.row]
-        } else {
-            currentGroup = groups[indexPath.row]
-        }
-        return cell
+        let groupsInSection = getGroups(in: indexPath.section)
         
         cell.configure(
             photo: UIImage(systemName: "person.3.fill") ?? UIImage(),
-            name: currentGroup)
-
+            name: groupsInSection[indexPath.row])
+        
         return cell
     }
 
     override func tableView(_ tableView: UITableView,
-                            didSelectRowAt indexPath: IndexPath) {
-        defer {
-            tableView.deselectRow(at: indexPath, animated: true)
-        }
-        
-        let groupKey = groupSectionTitles[indexPath.section]
-        var currentGroup = ""
-        if let groupValues = groupsDictionary[groupKey] {
-            currentGroup = groupValues[indexPath.row]
-        }
+                            didSelectRowAt indexPath: IndexPath)
+    {
+        let groupsInSection = getGroups(in: indexPath.section)
+        let currentGroup = groupsInSection[indexPath.row]
         
         if userGroups.firstIndex(of: currentGroup) == nil {
             userGroups.append(currentGroup)
         }
         
-        if isSearching {
-            currentGroup = filteredData[indexPath.row]
-        } else {
-            currentGroup = groups[indexPath.row]
+        defer {
+            tableView.deselectRow(at: indexPath, animated: true)
         }
         
         self.performSegue(withIdentifier: "addGroup", sender: nil)
