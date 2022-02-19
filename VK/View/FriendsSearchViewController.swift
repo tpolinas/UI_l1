@@ -103,7 +103,10 @@ final class FriendsSearchViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = " Search..."
         searchBar.delegate = self
+    
         arrayOfUserNames()
         sortNamesAlphabetically()
 

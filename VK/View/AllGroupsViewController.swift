@@ -43,6 +43,11 @@ final class AllGroupsViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.searchBarStyle = UISearchBar.Style.default
+        searchBar.placeholder = " Search..."
+        searchBar.delegate = self
+        
         tableView.register(UINib(
             nibName: "GroupCell",
             bundle: nil),
